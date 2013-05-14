@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.uestc.soa.dao.students.GetHistoryMapper">
+
+
+	<resultMap type="edu.uestc.soa.dao.students.GetHistoryEntity" id="HistoryMapper">
+		<result property="result" column="result"/>
+		<result property="course_name" column="course_name"/>
+		<result property="teacher_id" column="course_id"/>
+		<result property="week" column="week"/>
+		<result property="teacher_id" column="teacher_id"/>
+		<result property="teacher_name" column="teacher_name"/>
+		<result property="time" column="time"/>
+		<result property="student_id" column="student_id"/>
+		<result property="student_name" column="student_name"/>
+		
+	</resultMap>
+	
+	
+	<select id="getInterVal" resultMap="HistoryMapper" resultType="edu.uestc.soa.dao.students.GetHistoryEntity">
+		select *  from attendance_view where week > #{1} and #{2} > week
+	</select>
+	
+</mapper>
